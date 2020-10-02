@@ -1,0 +1,27 @@
+<template>
+  <div>
+    <p v-for="item in fetchedAsk" v-bind:key="item">
+      <a v-bind:href="item.url">
+        {{item.title}}
+      </a>
+      <small>{{item.time_ago}} by {{item.user}}</small>
+    </p>
+  </div>
+</template>
+
+<script>
+import { mapGetters } from 'vuex'
+
+export default {
+  computed: {
+    ...mapGetters(['fetchedAsk'])
+  },
+  created() {
+    this.$store.dispatch('FETCH_ASKS')
+  }
+}
+</script>
+
+<style>
+
+</style>
