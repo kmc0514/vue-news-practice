@@ -7,5 +7,11 @@ export default {
     },
     fetchedJobs(state) {
         return state.jobs;
+    },
+    fetchedUser(state) {
+        return state.user;
+    },
+    fetchedComment(state) {
+        return state.comment;
     }
 }
