@@ -1,37 +1,17 @@
 <template>
   <div>
-    <ul class="news-list">
-        <li v-for="item in fetchedJobs" v-bind:key="item" class="post">
-            <div class="points">
-                {{ item.points || 0}}
-            </div>
-            <div>
-                <p class="news-title">
-                    <a v-bind:href="item.url">
-                    {{item.title}}
-                    </a>
-                </p>
-                <small class="link-text">{{item.time_ago}} by 
-                    <a v-bind:href="item.url">
-                    {{item.domain}}
-                    </a>
-                </small>
-            </div>
-        </li>
-    </ul>
+    <list-item></list-item>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import ListItem from "../components/ListItem.vue"
+
 
 export default {
-  computed: {
-    ...mapGetters(['fetchedJobs'])
+  components: {
+    ListItem
   },
-  created() {
-    this.$store.dispatch('FETCH_JOBS');
-  }
 }
 </script>
 
