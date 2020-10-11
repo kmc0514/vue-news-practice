@@ -6,16 +6,9 @@ const config = {
 }
 
 // API functions
-const fetchNewsList = () => {
-    return axios.get(`${config.baseUrl}news/1.json`);
-}
 
-const fetchAskList = () => {
-    return axios.get(`${config.baseUrl}ask/1.json`);
-}
-
-const fetchJobsList = () => {
-    return axios.get(`${config.baseUrl}jobs/1.json`);
+const fetchList = (pageName) => {
+    return axios.get(`${config.baseUrl}${pageName}/1.json`);
 }
 
 const fetchUserInfo = (id) => {
@@ -27,5 +20,5 @@ const fetchCommentItem = (id) => {
 }
 
 export {
-    fetchNewsList, fetchAskList, fetchJobsList, fetchUserInfo, fetchCommentItem
+    fetchUserInfo, fetchCommentItem, fetchList
 }
